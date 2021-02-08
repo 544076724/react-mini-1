@@ -45,6 +45,7 @@ function buildFunctionComponent(virtualDOM) {//函数组件返回虚拟dom
 
 function buildClassComponent(virtualDOM) {//class组件调用render 返回虚拟dom
   const component = new virtualDOM.tag(virtualDOM.props || {})
+  component.prevState = component.state;
   const nextVirtualDOM = component.render()
   nextVirtualDOM.component = component //把当前组件实例挂载到虚拟dom上，方便后续执行 生命周期函数
   return nextVirtualDOM
