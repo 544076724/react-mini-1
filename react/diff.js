@@ -61,7 +61,7 @@ export default function diff (virtualDOM, container, oldDOM) {
 
     let hasNoKey = Object.keys(keyedElements).length === 0
     if (hasNoKey) {//无key
-      // 没有key，直接逐级比对一个一个更新
+      // 没有key，直接逐级比对,一个一个更新
       virtualDOM.children.forEach((child, i) => {
         diff(child, oldDOM, oldDOM.childNodes[i]) //更新比对
       })
